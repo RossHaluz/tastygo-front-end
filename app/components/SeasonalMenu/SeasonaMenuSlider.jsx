@@ -37,7 +37,7 @@ const SeasonaMenuSlider = () => {
   ];
 
   return (
-    <div className="relative w-full flex flex-col gap-[24px]">
+    <div className="relative w-full flex flex-col gap-[16px] md:gap-[24px]">
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={1.2}
