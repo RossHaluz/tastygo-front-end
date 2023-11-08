@@ -108,14 +108,14 @@ const ReviewsSlider = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-[8px] container">
+      <div className="flex flex-col items-center md:items-start gap-[8px] md:gap-[16px]">
         <Link
           href="/"
-          className="p-[11.5px] w-[280px] mx-auto bg-[#152F23] rounded-[30px] text-[#fff] font-medium leading-[16.8px] flex items-center justify-center"
+          className="p-[11.5px] w-[280px] md:w-[308px] md:p-[13.5px] bg-[#152F23] rounded-[30px] text-[#fff] font-medium leading-[16.8px] flex items-center justify-center"
         >
           Add review
         </Link>
-        <p className="text-[12px] leading-[14.4px] text-center">
+        <p className="text-[12px] text-[#1E1E2D] leading-[14.4px] md:text-[18px] md:leading-[21.6px]">
           *Only registered users can leave reviews
         </p>
       </div>
