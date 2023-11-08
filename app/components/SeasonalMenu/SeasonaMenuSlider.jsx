@@ -42,6 +42,7 @@ const SeasonaMenuSlider = () => {
         modules={[Navigation, Pagination]}
         slidesPerView={1.2}
         spaceBetween={10}
+        parallax={true}
         loop={true}
         navigation={{
           prevEl: navigationPrevRef.current,
