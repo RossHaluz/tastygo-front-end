@@ -12,7 +12,7 @@ const Section = ({
   styleShowAll,
 }) => {
   return (
-    <section className="py-[32px] md:py-[64px] lg:py-[80px] flex flex-col gap-[16px] md:gap-[32px]">
+    <section className="py-[32px] md:py-[64px] lg:py-[80px] flex flex-col gap-[16px] md:gap-[36px] lg:gap-[32px]">
       <div className={`${styles}`}>
         {title && subtitle && (
           <div className="flex flex-col gap-[12px] md:gap-[16px]">

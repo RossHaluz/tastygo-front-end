@@ -1,4 +1,5 @@
 import Section from "../Section";
+import ReviewsSlider from "./ReviewsSlider";
 
 const Reviews = () => {
   return (
@@ -9,7 +10,9 @@ const Reviews = () => {
       styles={"container relative flex items-end justify-between"}
       styleShowAll={"absolute bottom-0 right-[20px] lg:right-[80px]"}
       styleTitle={"w-[312px] md:w-[502px] lg:w-[407px]"}
-    ></Section>
+    >
+      <ReviewsSlider />
+    </Section>
   );
 };
 

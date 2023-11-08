@@ -37,10 +37,11 @@ const SeasonaMenuSlider = () => {
   ];
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full flex flex-col gap-[24px]">
       <Swiper
         modules={[Navigation, Pagination]}
-        slidesPerView={1}
+        slidesPerView={1.2}
+        spaceBetween={10}
         loop={true}
         navigation={{
           prevEl: navigationPrevRef.current,
@@ -51,7 +52,7 @@ const SeasonaMenuSlider = () => {
         }}
         breakpoints={{
           320: {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             centeredSlides: true,
           },
           768: {
@@ -67,7 +68,7 @@ const SeasonaMenuSlider = () => {
         <ul>
           {items?.map(({ img, title, weigth, price, id }) => {
             return (
-              <SwiperSlide key={id} className="py-[24px] px-[16px]">
+              <SwiperSlide key={id}>
                 <li className="flex flex-col gap-[24px] p-[24px] border border-solid border-[#010101]/[.20] rounded-[8px]">
                   <Image
                     src={img}
