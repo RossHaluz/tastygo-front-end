@@ -1,3 +1,4 @@
+import Contact from "./components/Contact/Contact";
 import Hero from "./components/Hero/Hero";
 import OurService from "./components/OurService/OurService";
 import PopularDishes from "./components/PopularDishes/PopularDishes";
@@ -12,6 +13,7 @@ export default function Home() {
       <OurService />
       <SeasonalMenu />
       <Reviews />
+      <Contact />
     </>
   );
 }

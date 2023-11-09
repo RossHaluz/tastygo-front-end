@@ -12,7 +12,7 @@ const OurServiceList = () => {
           <p className="text-[#fff] md:text-[16px] w-[213px] md:w-full">
             Variety of delightful dishes for every meal
           </p>
-          <ArrowUp />
+          <ArrowUp className="fill-[#fff] w-[46px] h-[46px] md:w-[64px] md:h-[64px]" />
         </div>
       </li>
 
@@ -25,7 +25,7 @@ const OurServiceList = () => {
           <p className="text-[#fff] md:text-[16px] w-[213px] md:w-full">
             Variety of delightful dishes for every meal
           </p>
-          <ArrowUp />
+          <ArrowUp className="fill-[#fff] w-[46px] h-[46px] md:w-[64px] md:h-[64px]" />
         </div>
       </li>
 
@@ -38,7 +38,7 @@ const OurServiceList = () => {
           <p className="text-[#fff] md:text-[16px] w-[213px] md:w-full">
             Variety of delightful dishes for every meal
           </p>
-          <ArrowUp />
+          <ArrowUp className="fill-[#fff] w-[46px] h-[46px] md:w-[64px] md:h-[64px]" />
         </div>
       </li>
     </ul>
