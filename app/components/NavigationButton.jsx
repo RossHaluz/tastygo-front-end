@@ -3,9 +3,9 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 
-const NavigationButton = ({ navigationPrevRef, navigationNextRef }) => {
+const NavigationButton = ({ navigationPrevRef, navigationNextRef, styles }) => {
   return (
-    <div className="flex items-center gap-[8px] mx-auto">
+    <div className={`flex items-center gap-[8px] mx-auto ${styles}`}>
       <button type="button" ref={navigationPrevRef}>
         <MdOutlineKeyboardArrowLeft size={24} />
       </button>

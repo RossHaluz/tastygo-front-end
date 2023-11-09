@@ -10,9 +10,12 @@ const Section = ({
   showAll,
   styleTitle,
   styleShowAll,
+  anotherStyles,
 }) => {
   return (
-    <section className="py-[32px] md:py-[64px] lg:py-[80px] flex flex-col gap-[16px] md:gap-[36px] lg:gap-[32px]">
+    <section
+      className={`py-[32px] md:py-[64px] lg:py-[80px] flex flex-col gap-[16px] md:gap-[36px] lg:gap-[32px] ${anotherStyles}`}
+    >
       <div className={`${styles}`}>
         {title && subtitle && (
           <div className="flex flex-col gap-[12px] md:gap-[16px]">
@@ -30,10 +33,10 @@ const Section = ({
         )}
 
         {showAll && (
-          <div className={`${styleShowAll} flex-col gap-[4px] `}>
+          <div className={`${styleShowAll} flex flex-col gap-[4px] `}>
             <Link
               href="/"
-              className="med:text-[20px] md:tracking-[0.2px] text-[#536524]"
+              className="md:text-[20px] md:tracking-[0.2px] text-[#536524]"
             >
               {showAll}
             </Link>

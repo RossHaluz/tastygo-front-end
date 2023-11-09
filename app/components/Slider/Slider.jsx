@@ -8,9 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import avatar from "../../images/avatar/avatar.png";
 import ReactStars from "react-rating-stars-component";
-import Link from "next/link";
 
-const ReviewsSlider = () => {
+const Slider = () => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -52,7 +51,7 @@ const ReviewsSlider = () => {
   ];
 
   return (
-    <div className="relative w-full flex flex-col gap-[16px] md:gap-[24px] lg:hidden">
+    <div className="relative w-full flex flex-col gap-[16px] md:gap-[24px]">
       <div className="lg:hidden">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -110,26 +109,14 @@ const ReviewsSlider = () => {
           </ul>
         </Swiper>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center lg:hidden">
         <NavigationButton
           navigationPrevRef={navigationPrevRef}
           navigationNextRef={navigationNextRef}
         />
       </div>
-
-      <div className="flex flex-col items-center md:items-start gap-[8px] md:gap-[16px]">
-        <Link
-          href="/"
-          className="p-[11.5px] w-[280px] md:w-[308px] md:text-[16px] md:p-[13.5px] bg-[#152F23] rounded-[30px] text-[#fff] font-medium leading-[16.8px] flex items-center justify-center"
-        >
-          Add review
-        </Link>
-        <p className="text-[12px] text-[#1E1E2D] leading-[14.4px] md:text-[18px] md:leading-[21.6px]">
-          *Only registered users can leave reviews
-        </p>
-      </div>
     </div>
   );
 };
 
-export default ReviewsSlider;
+export default Slider;

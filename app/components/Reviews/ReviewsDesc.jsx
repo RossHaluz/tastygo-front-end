@@ -10,7 +10,7 @@ import avatar from "../../images/avatar/avatar.png";
 import ReactStars from "react-rating-stars-component";
 import Link from "next/link";
 
-const ReviewsSlider = () => {
+const ReviewsDesc = () => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -20,7 +20,7 @@ const ReviewsSlider = () => {
       value={5}
       activeColor="#536524"
       edit={false}
-      size={16}
+      size={24}
     />
   );
 
@@ -52,11 +52,51 @@ const ReviewsSlider = () => {
   ];
 
   return (
-    <div className="relative w-full flex flex-col gap-[16px] md:gap-[24px] lg:hidden">
-      <div className="lg:hidden">
+    <section className="py-[80px] hidden lg:flex flex-col gap-[16px] md:gap-[36px] lg:gap-[32px] container">
+      <div className="flex items-center justify-between">
+        <h2 className="text-[18px] leading-[21.6px] uppercase text-[#F9854E]">
+          reviews
+        </h2>
+        <div className="flex flex-col gap-[4px]">
+          <Link
+            href="/"
+            className="text-[20px] tracking-[0.2px] text-[#536524]"
+          >
+            View all reviews
+          </Link>
+          <div className="w-full h-[1px] bg-[#536524]"></div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 items-center gap-[30px] h-full">
+        <div className="flex flex-col gap-[117px] w-[407px]">
+          <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[16px]">
+              <h3 className="text-[64px] font-medium leading-[70.4px]">
+                Our clients have a ton to say
+              </h3>
+              <p className="text-[18px] leading-[21.6px]">
+                *Only registered users can leave reviews
+              </p>
+            </div>
+            <button
+              type="button"
+              className="py-[20.5px] px-[138.5px] w-[362px] bg-[#152F23] rounded-[30px] text-[#fff] text-[16px] font-medium leading-[19.2px] flex items-center justify-center"
+            >
+              Add review
+            </button>
+          </div>
+
+          <NavigationButton
+            navigationPrevRef={navigationPrevRef}
+            navigationNextRef={navigationNextRef}
+            styles={"ml-0"}
+          />
+        </div>
+
         <Swiper
           modules={[Navigation, Pagination]}
-          slidesPerView={1.2}
+          slidesPerView={2}
           spaceBetween={10}
           parallax={true}
           loop={true}
@@ -67,40 +107,32 @@ const ReviewsSlider = () => {
           pagination={{
             dynamicBullets: true,
           }}
-          breakpoints={{
-            320: {
-              slidesPerView: 1.2,
-              centeredSlides: true,
-            },
-            768: {
-              slidesPerView: 2,
-              centeredSlides: false,
-            },
-            1440: {
-              slidesPerView: 2,
-              swipeHandler: false,
-            },
-          }}
+          className="col-span-2 h-full"
         >
           <ul>
             {items?.map(({ desc, stars, avatar, name, dateAdded, id }) => {
               return (
                 <SwiperSlide key={id}>
-                  <li className="flex flex-col p-[24px] border border-solid border-[#010101]/[.20] rounded-[8px] gap-[16px]">
-                    <p className="pb-[40px] text-left leading-[16.8px] text-[14px] md:text-[16px]">
-                      {desc}
-                    </p>
+                  <li className="flex flex-col justify-between h-full p-[32px] border border-solid border-[#010101]/[.20] rounded-[8px]">
+                    <p className="text-left text-[16px]">{desc}</p>
 
-                    {stars}
-                    <div className="flex items-center gap-[8px]">
-                      <Image src={avatar} width={48} height={48} alt="Avatar" />
-                      <div className="flex flex-col items-start gap-[2px]">
-                        <span className="text-[16px] font-medium leading-[19.2px]">
-                          {name}
-                        </span>
-                        <span className="text-[14px] md:text-[16px] leading-[19.6px] text-[#B7B7B7]">
-                          {dateAdded}
-                        </span>
+                    <div className="flex flex-col gap-[16.5px]">
+                      {stars}
+                      <div className="flex items-center gap-[8px]">
+                        <Image
+                          src={avatar}
+                          width={48}
+                          height={48}
+                          alt="Avatar"
+                        />
+                        <div className="flex flex-col items-start gap-[2px]">
+                          <span className="text-[20px] font-medium tracking-[0.2px]]">
+                            {name}
+                          </span>
+                          <span className="text-[16px] text-[#B7B7B7]">
+                            {dateAdded}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </li>
@@ -110,26 +142,8 @@ const ReviewsSlider = () => {
           </ul>
         </Swiper>
       </div>
-      <div className="flex justify-center">
-        <NavigationButton
-          navigationPrevRef={navigationPrevRef}
-          navigationNextRef={navigationNextRef}
-        />
-      </div>
-
-      <div className="flex flex-col items-center md:items-start gap-[8px] md:gap-[16px]">
-        <Link
-          href="/"
-          className="p-[11.5px] w-[280px] md:w-[308px] md:text-[16px] md:p-[13.5px] bg-[#152F23] rounded-[30px] text-[#fff] font-medium leading-[16.8px] flex items-center justify-center"
-        >
-          Add review
-        </Link>
-        <p className="text-[12px] text-[#1E1E2D] leading-[14.4px] md:text-[18px] md:leading-[21.6px]">
-          *Only registered users can leave reviews
-        </p>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default ReviewsSlider;
+export default ReviewsDesc;
