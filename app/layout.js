@@ -1,8 +1,9 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./components/Providers";
-import Hedear from "./components/Header/Hedear";
-import Footer from "./components/Footer/Footer";
+import { Providers } from "../components/Providers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ProviderWrapp } from "../redux/provider";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],
@@ -20,11 +21,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={dm_sans.className}>
-        <Providers>
-          <Hedear />
-          <main>{children}</main>
-          <Footer />
-        </Providers>
+        <ProviderWrapp>
+          <Providers>
+            {children}
+            <ToastContainer />
+          </Providers>
+        </ProviderWrapp>
       </body>
     </html>
   );

@@ -1,13 +1,7 @@
-import AdminLoginForm from '@/app/components/AdminLoginForm';
-import React from 'react';
+import AdminLogin from "@/components/AdminLogin/AdminLogin";
 
 const AdminLoginPage = () => {
-  return (
-    <div>
-        login
-      <AdminLoginForm/>
-    </div>
-  )
-}
+  return <AdminLogin />;
+};
 
-export default AdminLoginPage
+export default AdminLoginPage;
