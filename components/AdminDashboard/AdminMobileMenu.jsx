@@ -24,7 +24,7 @@ const AdminMobileMenu = () => {
           className="fixed w-full h-screen bg-[#1e1e2d]/[.15]"
           onClick={closeMenuOnBackdrop}
         >
-          <div className="w-[75%] h-full bg-[#fff] flex flex-col pb-[50px]">
+          <div className="w-[75%] h-full bg-[#fff] flex flex-col pb-[100px]">
             <div className="p-[16px] border-b border-[#B7B7B7] flex items-center justify-between">
               <h3 className="text-[18px] font-medium">Menu</h3>
               <button
