@@ -28,10 +28,8 @@ const AdminLoginForm = () => {
       password: password,
       redirect: false,
     });
-    console.log(res);
     if (res && !res.error) {
       router.push("/admin/dashboard");
-      console.log("correct");
       resetForm();
     } else {
       toast.error("Email or password is not correct...");
