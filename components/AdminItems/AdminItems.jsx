@@ -5,7 +5,7 @@ const AdminItems = () => {
   return (
     <div className="container py-[24px]">
       <div className="flex items-center justify-between">
-        <h2>Items</h2>
+        <h2 className="text-[16px] font-medium">Items</h2>
 
         <Link
           href="/admin/add-item"

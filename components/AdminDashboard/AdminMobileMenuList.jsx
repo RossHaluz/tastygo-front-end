@@ -22,7 +22,8 @@ const AdminMobileMenuList = () => {
       </Link>
 
       <Link
-        href="/"
+        href="/admin/categories"
+        onClick={() => dispatch(closeMobileMenu(false))}
         className="flex items-center gap-[16px] pb-[10px] border-b border-[#B7B7B7]"
       >
         <BiCategoryAlt className="w-[24px] h-[24px]" />
