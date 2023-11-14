@@ -2,8 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // http://localhost:3005
-// tastygo-front-end.vercel.app/
-axios.defaults.baseURL = "http://localhost:3005";
+// https://tastygo.onrender.com
+axios.defaults.baseURL = "https://tastygo.onrender.com";
 
 export const createCategory = createAsyncThunk(
   "api/createCategory",
@@ -62,14 +62,16 @@ export const updateCategory = createAsyncThunk(
   }
 );
 
-
-export const deleteCategory = createAsyncThunk('api/deleteCategory', async (categoryId, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.delete(
-      `/api/category/delete-category/${categoryId}`
-    );
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const deleteCategory = createAsyncThunk(
+  "api/deleteCategory",
+  async (categoryId, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.delete(
+        `/api/category/delete-category/${categoryId}`
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-})
+);
