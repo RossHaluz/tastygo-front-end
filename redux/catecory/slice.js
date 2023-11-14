@@ -4,6 +4,7 @@ import {
   getAllCategories,
   getCategory,
   updateCategory,
+  deleteCategory,
 } from "./operetions";
 
 const initialState = {
@@ -42,10 +43,20 @@ const categorySlice = createSlice({
     },
     [updateCategory.fulfilled](state, action) {
       state.isLoading = false;
-      const findIndex = state.categories?.findIndex(
-        (item) => item._id === action.payload._id
+      state.categories = action.payload.categories;
+      const findIndex = state.categories.findIndex(
+        (item) => item._id === action.payload.updateCategory._id
       );
-      state.categories = state.categories[findIndex] = action.payload;
+      state.categories[findIndex] = action.payload.updateCategory;
+    },
+    [deleteCategory.pending](state, action) {
+      state.isLoading = true;
+    },
+    [deleteCategory.fulfilled](state, action) {
+      state.isLoading = false;
+      state.categories = state.categories.filter(
+        (item) => item._id !== action.payload._id
+      );
     },
   },
 });

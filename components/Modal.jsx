@@ -28,7 +28,7 @@ const Modal = ({ data, children, styles, text, title }) => {
 
       {isOpen && (
         <div
-          className="fixed w-full h-full top-0 left-0 bg-[#151515]/[.50] flex justify-center items-center"
+          className="fixed w-full h-full top-0 left-0 bg-[#151515]/[.50] flex justify-center items-center px-[10px]"
           onClick={onCloseModal}
         >
           <div

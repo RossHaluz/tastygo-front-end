@@ -2,7 +2,7 @@
 import { updateCategory } from "@/redux/catecory/operetions";
 import { selectCategory, selectIsLoading } from "@/redux/catecory/selectors";
 import { Form, Formik, Field } from "formik";
-import { redirect, useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 
 const AdminUpdateCategoryForm = () => {
@@ -10,6 +10,7 @@ const AdminUpdateCategoryForm = () => {
   const isLoading = useSelector(selectIsLoading);
   const { categoryId } = useParams();
   const dispatch = useDispatch();
+  const redirect = useRouter();
 
   const initialValues = {
     title: category && category.title,
@@ -17,7 +18,7 @@ const AdminUpdateCategoryForm = () => {
 
   const onSubmit = (values) => {
     dispatch(updateCategory({ categoryId, ...values }));
-    redirect("/admin/categories");
+    redirect.push("/admin/categories");
   };
 
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { getAllCategories } from "@/redux/catecory/operetions";
+import { deleteCategory, getAllCategories } from "@/redux/catecory/operetions";
 import { selectCategories } from "@/redux/catecory/selectors";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -44,7 +44,10 @@ const AdminCategories = () => {
                     <BsPencil size={18} />
                   </Link>
 
-                  <button type="button">
+                  <button
+                    type="button"
+                    onClick={() => dispatch(deleteCategory(id))}
+                  >
                     <AiOutlineDelete size={18} />
                   </button>
                 </div>

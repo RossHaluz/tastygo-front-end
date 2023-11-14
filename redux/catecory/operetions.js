@@ -61,3 +61,15 @@ export const updateCategory = createAsyncThunk(
     }
   }
 );
+
+
+export const deleteCategory = createAsyncThunk('api/deleteCategory', async (categoryId, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.delete(
+      `/api/category/delete-category/${categoryId}`
+    );
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+})
