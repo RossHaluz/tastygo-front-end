@@ -48,3 +48,19 @@ export const deleteItem = createAsyncThunk(
     }
   }
 );
+
+export const updateItem = createAsyncThunk(
+  "api/updateItem",
+  async (params, { rejectWithValue }) => {
+    const { itemId, data: values } = params;
+    try {
+      const { data } = await axios.put(
+        `/api/item/update-item/${itemId}`,
+        values
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

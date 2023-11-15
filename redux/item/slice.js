@@ -4,6 +4,7 @@ import {
   getAllItems,
   getItemDetails,
   deleteItem,
+  updateItem,
 } from "./operetions";
 
 const initialState = {
@@ -34,7 +35,6 @@ const itemSlice = createSlice({
       state.isLoading = true;
     },
     [getItemDetails.fulfilled](state, action) {
-      console.log(action.payload);
       state.isLoading = false;
       state.itemDetails = action.payload;
     },
@@ -46,6 +46,12 @@ const itemSlice = createSlice({
       state.items = state.items.filter(
         (item) => item._id !== action.payload._id
       );
+    },
+    [updateItem.pending](state, action) {
+      state.isLoading = true;
+    },
+    [updateItem.fulfilled](state, action) {
+      state.isLoading = false;
     },
   },
 });

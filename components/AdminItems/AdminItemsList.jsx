@@ -1,6 +1,6 @@
 "use client";
 import { deleteItem, getAllItems } from "@/redux/item/operetions";
-import { selectItems } from "@/redux/item/selectors";
+import { selectIsLoading, selectItems } from "@/redux/item/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Link from "next/link";
@@ -9,7 +9,10 @@ import { RiDeleteBinLine } from "react-icons/ri";
 
 const AdminItemsList = () => {
   const items = useSelector(selectItems);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
+
+  console.log(isLoading);
 
   useEffect(() => {
     dispatch(getAllItems());

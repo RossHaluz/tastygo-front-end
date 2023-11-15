@@ -3,7 +3,7 @@ import axios from "axios";
 
 // http://localhost:3005
 // https://tastygo.onrender.com
-axios.defaults.baseURL = "https://tastygo.onrender.com";
+axios.defaults.baseURL = "http://localhost:3005";
 
 export const createCategory = createAsyncThunk(
   "api/createCategory",

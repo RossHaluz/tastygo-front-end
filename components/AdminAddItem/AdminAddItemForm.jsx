@@ -93,6 +93,8 @@ const AdminAddItemForm = () => {
       category,
     } = values;
 
+    console.log(values);
+
     const data = new FormData();
     data.append("nameItem", nameItem);
     data.append("weight", weight);
@@ -105,7 +107,7 @@ const AdminAddItemForm = () => {
       data.append("image", selectedFile);
     }
     if (selectedAllergens.length > 0) {
-      data.append("allergens", JSON.stringify(allergens));
+      data.append("allergens", JSON.stringify(selectedAllergens));
     }
     dispatch(createItem(data));
   };
