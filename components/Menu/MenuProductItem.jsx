@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const MunuProductItem = ({ item }) => {
+const MenuProductItem = ({ item }) => {
   const { image, nameItem, weight, price } = item;
 
   return (
@@ -38,4 +38,4 @@ const MunuProductItem = ({ item }) => {
   );
 };
 
-export default MunuProductItem;
+export default MenuProductItem;

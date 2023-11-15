@@ -1,7 +1,7 @@
 import MenuBanner from "./MenuBanner";
 import MenuTitle from "./MenuTitle";
-import MunuCategories from "./MunuCategories";
-import MunuProducts from "./MunuProducts";
+import MunuCategories from "./MenuCategories";
+import MunuProducts from "./MenuProducts";
 
 const Menu = () => {
   return (

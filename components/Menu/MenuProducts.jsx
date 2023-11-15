@@ -3,9 +3,9 @@ import { getAllItems } from "@/redux/item/operetions";
 import { selectItems } from "@/redux/item/selectors";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MunuProductItem from "./MunuProductItem";
+import MunuProductItem from "./MenuProductItem";
 
-const MunuProducts = () => {
+const MenuProducts = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
 
@@ -23,4 +23,4 @@ const MunuProducts = () => {
   );
 };
 
-export default MunuProducts;
+export default MenuProducts;

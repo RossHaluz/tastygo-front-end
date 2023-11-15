@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const MunuCategories = () => {
+const MenuCategories = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
 
@@ -31,4 +31,4 @@ const MunuCategories = () => {
   );
 };
 
-export default MunuCategories;
+export default MenuCategories;
