@@ -1,7 +1,7 @@
 "use client";
 import { createCategory } from "@/redux/catecory/operetions";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 
@@ -11,6 +11,7 @@ const validationSchema = Yup.object({
 
 const AdminAddCategoryForm = () => {
   const dispatch = useDispatch();
+  const redirect = useRouter();
 
   const initialValues = {
     title: "",
@@ -18,7 +19,7 @@ const AdminAddCategoryForm = () => {
 
   const onSubmit = (values, { resetForm }) => {
     dispatch(createCategory(values));
-    redirect("/admin/categories");
+    redirect.push("/admin/categories");
   };
 
   return (

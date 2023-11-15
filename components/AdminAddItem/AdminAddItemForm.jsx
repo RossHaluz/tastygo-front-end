@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createItem } from "@/redux/item/operetions";
 import { getAllCategories } from "@/redux/catecory/operetions";
 import { selectCategories } from "@/redux/catecory/selectors";
+import { useRouter } from "next/navigation";
 
 const validationSchema = Yup.object({
   nameItem: Yup.string("Type name item").required("Name is required"),
@@ -42,6 +43,7 @@ const AdminAddItemForm = () => {
   const fileRef = useRef();
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
+  const redirect = useRouter();
 
   useEffect(() => {
     dispatch(getAllCategories());
@@ -110,6 +112,7 @@ const AdminAddItemForm = () => {
       data.append("allergens", JSON.stringify(selectedAllergens));
     }
     dispatch(createItem(data));
+    redirect.push("/admin/items");
   };
 
   return (
