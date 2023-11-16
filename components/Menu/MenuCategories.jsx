@@ -24,9 +24,8 @@ const MenuCategories = () => {
             title.split(" ").length > 1
               ? title.split(" ").join("-").toLowerCase()
               : title.toLowerCase();
-          const formattedCategoryName = categoryName
-            .replace(/%20/g, "-")
-            .toLowerCase();
+          const formattedCategoryName =
+            categoryName && categoryName.replace(/%20/g, "-").toLowerCase();
 
           return (
             <Link

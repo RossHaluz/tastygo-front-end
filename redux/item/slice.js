@@ -58,7 +58,6 @@ const itemSlice = createSlice({
       state.isLoading = true;
     },
     [getCategoryItems.fulfilled](state, action) {
-      console.log(action.payload);
       state.isLoading = false;
       state.items = action.payload;
     },
