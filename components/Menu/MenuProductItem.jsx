@@ -35,7 +35,7 @@ const MenuProductItem = ({ item }) => {
           To Order
         </button>
         <button type="button">
-          <Favorite size={24} className="absolute top-0 right-0" />
+          <Favorite className="w-[24px] h-[24px] md:w-[32px] md:h-[32px] absolute top-0 right-0" />
         </button>
       </Link>
     </li>
