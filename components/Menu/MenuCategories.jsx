@@ -26,7 +26,7 @@ const MenuCategories = () => {
               : title.toLowerCase();
           const formattedCategoryName =
             categoryName && categoryName.replace(/%20/g, "-").toLowerCase();
-
+          console.log(formattedTitle === formattedCategoryName);
           return (
             <Link
               href={`/menu/category/${title}`}
