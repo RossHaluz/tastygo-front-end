@@ -49,7 +49,9 @@ const ProductDetailsAddTheIngredients = ({
                     type="checkbox"
                     class="appearance-none relative w-[16px] h-[16px] border border-solid border-[#010101] checked:before:content-[''] checked:before:absolute checked:before:top-1/2 checked:before:left-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2  checked:before:w-[11px] checked:before:h-[11px] checked:before:bg-[#010101]"
                   />
-                  <span class="ml-1 text-[16px]">{option}</span>
+                  <span class="leading-[16.8px] md:text-[16px] md:leading-[19.2px]">
+                    {option}
+                  </span>
                 </label>
               );
             })}

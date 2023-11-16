@@ -8,7 +8,7 @@ const NutritionalValue = ({
   setNutritionalValue,
 }) => {
   const characteristicsParse = JSON.parse(characteristics);
-  console.log(characteristicsParse);
+
   return (
     <div
       className={clsx("bg-[#F6F6F6] rounded-[20px]", {
@@ -45,8 +45,12 @@ const NutritionalValue = ({
                   key={name}
                   className="flex items-center justify-between leading-[16.8px]"
                 >
-                  <h3>{name}</h3>
-                  <span>{option}</span>
+                  <h3 className="leading-[16.8px] md:text-[16px] md:leading-[19.2px]">
+                    {name}
+                  </h3>
+                  <span className="leading-[16.8px] md:text-[16px] md:leading-[19.2px]">
+                    {option}
+                  </span>
                 </div>
               );
             })}
