@@ -10,9 +10,7 @@ const NutritionalValue = ({
   const characteristicsParse = JSON.parse(characteristics);
   console.log(characteristicsParse);
   return (
-    <button
-      type="button"
-      onClick={() => setNutritionalValue((prev) => !prev)}
+    <div
       className={clsx("bg-[#F6F6F6] rounded-[20px]", {
         "px-[24px] py-[10.5px]": !nutritionalValue,
         "px-[16px] py-[24px]": nutritionalValue,
@@ -24,9 +22,19 @@ const NutritionalValue = ({
             Nutritional value
           </h3>
           {nutritionalValue ? (
-            <Minus className="w-[24px] h-[24px]" />
+            <button
+              type="button"
+              onClick={() => setNutritionalValue((prev) => !prev)}
+            >
+              <Minus className="w-[24px] h-[24px]" />
+            </button>
           ) : (
-            <Plus className="w-[24px] h-[24px]" />
+            <button
+              type="button"
+              onClick={() => setNutritionalValue((prev) => !prev)}
+            >
+              <Plus className="w-[24px] h-[24px]" />
+            </button>
           )}
         </div>
         {characteristicsParse?.length && nutritionalValue > 0 && (
@@ -45,7 +53,7 @@ const NutritionalValue = ({
           </div>
         )}
       </div>
-    </button>
+    </div>
   );
 };
 
