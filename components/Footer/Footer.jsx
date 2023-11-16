@@ -8,7 +8,7 @@ import Mastercard from "../../public/images/payment/mastercard.svg";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="mt-auto">
       <div className="bg-[#010101] p-[24px] md:px-[20px] md:py-[64px] lg:px-[80px]">
         <div className=" flex flex-col gap-[16px] md:gap-[32px]">
           <FooterLogo />
