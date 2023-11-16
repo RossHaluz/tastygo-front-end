@@ -28,7 +28,7 @@ const ProductDetails = () => {
   return (
     <div className="container py-[32px]">
       {item && (
-        <div className="flex flex-col gap-[24px] lg:flex-row lg:gap-[138px] lg:items-start">
+        <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-2 lg:gap-[138px] lg:items-start">
           <ProductDetailsImg image={item?.image} nameItem={item?.nameItem} />
           <div>
             <div className="flex flex-col gap-[24px]">

@@ -64,3 +64,13 @@ export const updateItem = createAsyncThunk(
     }
   }
 );
+
+
+export const getCategoryItems = createAsyncThunk('api/getCategoryItems', async (categoryName, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(`/api/item/category-items/${categoryName}`);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+})

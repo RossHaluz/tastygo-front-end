@@ -5,6 +5,7 @@ import {
   getItemDetails,
   deleteItem,
   updateItem,
+  getCategoryItems,
 } from "./operetions";
 
 const initialState = {
@@ -52,6 +53,14 @@ const itemSlice = createSlice({
     },
     [updateItem.fulfilled](state, action) {
       state.isLoading = false;
+    },
+    [getCategoryItems.pending](state, action) {
+      state.isLoading = true;
+    },
+    [getCategoryItems.fulfilled](state, action) {
+      console.log(action.payload);
+      state.isLoading = false;
+      state.items = action.payload;
     },
   },
 });
