@@ -15,6 +15,7 @@ const MenuProductItem = ({ item }) => {
           src={image}
           width={280}
           height={198}
+          alt={nameItem}
           className="w-[280px] h-[198px] md:w-[301px] md:h-[213px]"
         />
         <div className="flex flex-col gap-[10px] mr-auto">
