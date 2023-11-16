@@ -8,7 +8,7 @@ const NutritionalValue = ({
   setNutritionalValue,
 }) => {
   const characteristicsParse = JSON.parse(characteristics);
-
+  console.log(characteristicsParse);
   return (
     <button
       type="button"
@@ -33,7 +33,10 @@ const NutritionalValue = ({
           <div className="flex flex-col gap-[12px]">
             {characteristicsParse?.map(({ name, option }) => {
               return (
-                <div className="flex items-center justify-between leading-[16.8px]">
+                <div
+                  key={name}
+                  className="flex items-center justify-between leading-[16.8px]"
+                >
                   <h3>{name}</h3>
                   <span>{option}</span>
                 </div>
