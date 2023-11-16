@@ -3,12 +3,12 @@ import Link from "next/link";
 import Favorite from "../../public/images/favorite/heart.svg";
 
 const MenuProductItem = ({ item }) => {
-  const { image, nameItem, weight, price } = item;
+  const { image, nameItem, weight, price, _id: id } = item;
 
   return (
     <li className="p-[24px] border border-s border-[#010101]/[.20] rounded-[8px]">
       <Link
-        href="/"
+        href={`/menu/${id}`}
         className="flex flex-col gap-[24px] justify-center items-center relative"
       >
         <Image

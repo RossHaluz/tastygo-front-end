@@ -9,7 +9,6 @@ const ProductDetailsAddTheIngredients = ({
   setAddTheIngredient,
 }) => {
   const optiosIngredientParse = JSON.parse(optiosIngredient);
-  console.log(optiosIngredientParse);
 
   return (
     <button

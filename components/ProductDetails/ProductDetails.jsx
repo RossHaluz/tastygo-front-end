@@ -54,8 +54,8 @@ const ProductDetails = () => {
         />
         <NutritionalValue
           characteristics={item && item?.characteristics}
-                  nutritionalValue={nutritionalValue}
-                  setNutritionalValue={setNutritionalValue}
+          nutritionalValue={nutritionalValue}
+          setNutritionalValue={setNutritionalValue}
         />
       </div>
     </div>
