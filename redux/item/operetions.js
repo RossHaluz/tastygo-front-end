@@ -70,10 +70,11 @@ export const updateItem = createAsyncThunk(
 
 export const getCategoryItems = createAsyncThunk(
   "api/getCategoryItems",
-  async (categoryName, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
+    const { categoryName, currentPage: page, currentLimit: limit } = params;
     try {
       const { data } = await axios.get(
-        `/api/item/category-items/${categoryName}`
+        `/api/item/category-items/${categoryName}?page=${page}&limit=${limit}`
       );
       return data;
     } catch (error) {

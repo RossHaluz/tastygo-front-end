@@ -22,11 +22,9 @@ const Menu = () => {
   const currentPage = useSelector(selectCurrentPage);
   const currentLimit = useSelector(selectLimit);
   const totalPages = useSelector(selectTotalPages);
-  const [currentItems, setCurrentItems] = useState([]);
 
   useEffect(() => {
     dispatch(getAllItems({ page: currentPage, limit: currentLimit }));
-    setCurrentItems((prev) => [...prev, ...items]);
   }, [dispatch, currentPage, currentLimit]);
 
   const handleShowMoreClick = () => {
@@ -44,9 +42,7 @@ const Menu = () => {
           {!isLoading && (
             <div className="container flex flex-col gap-[10px]">
               <MenuTitle />
-              {currentItems?.length > 0 && (
-                <MunuProducts items={currentItems} />
-              )}
+              {items?.length > 0 && <MunuProducts items={items} />}
             </div>
           )}
         </div>

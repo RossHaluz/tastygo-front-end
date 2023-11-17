@@ -67,7 +67,11 @@ const itemSlice = createSlice({
     },
     [getCategoryItems.fulfilled](state, action) {
       state.isLoading = false;
-      state.items = action.payload;
+      state.items = action.payload.categoryItems;
+      state.currentPage = action.payload.meta.page;
+      state.totalPages = action.payload.meta.totalPages;
+      state.limit = action.payload.meta.limit;
+      state.totalItems = action.payload.meta.totalItems;
     },
   },
 });
