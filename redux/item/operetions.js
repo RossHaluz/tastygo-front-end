@@ -15,9 +15,12 @@ export const createItem = createAsyncThunk(
 
 export const getAllItems = createAsyncThunk(
   "api/getAllItems",
-  async (__, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
+    const { page, limit } = params;
     try {
-      const { data } = await axios.get("/api/item/get-items");
+      const { data } = await axios.get(
+        `/api/item/get-items?page=${page}&limit=${limit}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -65,12 +68,16 @@ export const updateItem = createAsyncThunk(
   }
 );
 
-
-export const getCategoryItems = createAsyncThunk('api/getCategoryItems', async (categoryName, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.get(`/api/item/category-items/${categoryName}`);
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const getCategoryItems = createAsyncThunk(
+  "api/getCategoryItems",
+  async (categoryName, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `/api/item/category-items/${categoryName}`
+      );
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-})
+);

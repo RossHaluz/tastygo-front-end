@@ -11,6 +11,10 @@ import {
 const initialState = {
   items: [],
   itemDetails: null,
+  currentPage: null,
+  totalPages: null,
+  totalItems: null,
+  limit: null,
   isLoading: false,
 };
 
@@ -30,7 +34,11 @@ const itemSlice = createSlice({
     },
     [getAllItems.fulfilled](state, action) {
       state.isLoading = false;
-      state.items = action.payload;
+      state.items = action.payload.items;
+      state.currentPage = action.payload.meta.page;
+      state.totalPages = action.payload.meta.totalPages;
+      state.limit = action.payload.meta.limit;
+      state.totalItems = action.payload.meta.totalItems;
     },
     [getItemDetails.pending](state, action) {
       state.isLoading = true;
