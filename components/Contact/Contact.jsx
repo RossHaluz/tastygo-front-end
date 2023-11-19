@@ -2,9 +2,13 @@ import Section from "../Section";
 import ContactImg from "./ContactImg";
 import ContactInfo from "./ContactInfo";
 
-const Contact = () => {
+const Contact = ({ sectiobTitle, styles }) => {
   return (
-    <Section anotherStyles={"pb-[433px] md:pb-[546px] lg:pb-[232px]"}>
+    <Section
+      anotherStyles={"pb-[433px] md:pb-[546px] lg:pb-[232px]"}
+      title={sectiobTitle}
+      styles={styles}
+    >
       <div className="relative">
         <ContactImg />
 

@@ -18,7 +18,7 @@ const Footer = () => {
               <Link href="/menu">Menu</Link>
               <Link href="/">Delivery</Link>
               <Link href="/">Reviews</Link>
-              <Link href="/">Contacts</Link>
+              <Link href="/contact">Contacts</Link>
             </nav>
             {/* Main navigation  */}
             {/* delivery & payment  */}
