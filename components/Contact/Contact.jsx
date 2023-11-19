@@ -4,11 +4,11 @@ import ContactInfo from "./ContactInfo";
 
 const Contact = () => {
   return (
-    <Section>
+    <Section anotherStyles={"pb-[433px] md:pb-[546px] lg:pb-[232px]"}>
       <div className="relative">
         <ContactImg />
 
-        <div className="container">
+        <div className="container absolute top-[77%] lg:top-[70%]">
           <ContactInfo />
         </div>
       </div>

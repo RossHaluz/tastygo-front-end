@@ -8,14 +8,14 @@ import Mastercard from "../../public/images/payment/mastercard.svg";
 
 const Footer = () => {
   return (
-    <footer className="mt-auto">
+    <footer className="">
       <div className="bg-[#010101] p-[24px] md:px-[20px] md:py-[64px] lg:px-[80px]">
         <div className=" flex flex-col gap-[16px] md:gap-[32px]">
           <FooterLogo />
           <div className="flex flex-col gap-[16px] md:gap-[32px] md:grid md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-1 md:grid-rows-2">
             {/* Main navigation */}
             <nav className="text-[#fff] flex flex-col gap-[8px]">
-              <Link href="/">Menu</Link>
+              <Link href="/menu">Menu</Link>
               <Link href="/">Delivery</Link>
               <Link href="/">Reviews</Link>
               <Link href="/">Contacts</Link>
