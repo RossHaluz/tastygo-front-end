@@ -16,7 +16,7 @@ const Footer = () => {
             {/* Main navigation */}
             <nav className="text-[#fff] flex flex-col gap-[8px]">
               <Link href="/menu">Menu</Link>
-              <Link href="/">Delivery</Link>
+              <Link href="/delivery">Delivery</Link>
               <Link href="/">Reviews</Link>
               <Link href="/contact">Contacts</Link>
             </nav>
