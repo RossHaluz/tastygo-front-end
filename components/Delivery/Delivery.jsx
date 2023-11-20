@@ -9,7 +9,7 @@ const Delivery = () => {
       <Advantages />
       <Payment />
       <Faq />
-      <QuestionsOrFeedback />
+      <QuestionsOrFeedback title={" Have questions? Ask us!"} />
     </div>
   );
 };
