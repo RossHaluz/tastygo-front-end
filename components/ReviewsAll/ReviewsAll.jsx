@@ -1,16 +1,13 @@
-import QuestionsOrFeedback from "../QuestionsOrFeedback/QuestionsOrFeedback";
+import ReviewsAllForm from "./ReviewsAllForm";
 import ReviewsAllList from "./ReviewsAllList";
 
 const ReviewsAll = () => {
   return (
     <>
       <ReviewsAllList />
-      <QuestionsOrFeedback
+      <ReviewsAllForm
         title={"We value your feedback: rate and review"}
         subtitle={"*Only registered users can leave reviews"}
-        formStyles={"gap-[32px]"}
-        isReting={true}
-        styles={"md:gap-[32px]"}
       />
     </>
   );

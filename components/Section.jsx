@@ -11,6 +11,7 @@ const Section = ({
   styleTitle,
   styleShowAll,
   anotherStyles,
+  sortBy,
 }) => {
   return (
     <section
@@ -23,13 +24,11 @@ const Section = ({
               {subtitle}
             </h2>
 
-            {title && (
-              <h3
-                className={`text-[32px] leading-[38.4px] font-medium md:text-[40px] md:leading-[48px] lg:text-[64px] lg:leading-[70.4px] ${styleTitle}`}
-              >
-                {title}
-              </h3>
-            )}
+            <h3
+              className={`text-[32px] leading-[38.4px] font-medium md:text-[40px] md:leading-[48px] lg:text-[64px] lg:leading-[70.4px] ${styleTitle}`}
+            >
+              {title}
+            </h3>
           </div>
         ) : (
           <div className="flex flex-col gap-[12px] md:gap-[16px]">
@@ -60,6 +59,8 @@ const Section = ({
             <div className="w-full h-[1px] bg-[#536524]"></div>
           </div>
         )}
+
+        {sortBy}
       </div>
       <div className={`${stylesSection}`}>{children}</div>
     </section>

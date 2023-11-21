@@ -39,7 +39,7 @@ const ReviewsDesc = () => {
       avatar: avatar,
       name: "William",
       dateAdded: "2 days ago",
-      id: 1,
+      id: 2,
     },
     {
       desc: "Tasty Bites Express has won me over with their amazing pizzas. The crust is just the right balance of crispy and chewy, and the toppings are generous. But that's not all – their diverse salad options and creative bowls are a treat for health-conscious foodies. And if you have a sweet tooth, their desserts are a must-try. A one-stop-shop for a delightful feast!",
@@ -47,7 +47,7 @@ const ReviewsDesc = () => {
       avatar: avatar,
       name: "William",
       dateAdded: "2 days ago",
-      id: 1,
+      id: 3,
     },
   ];
 
