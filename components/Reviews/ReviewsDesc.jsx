@@ -15,13 +15,7 @@ const ReviewsDesc = () => {
   const navigationNextRef = useRef(null);
 
   const stars = (
-    <ReactStars
-      count={5}
-      value={5}
-      activeColor="#536524"
-      edit={false}
-      size={24}
-    />
+    <ReactStars count={5} value={5} activeColor="#536524" edit={false} />
   );
 
   const items = [

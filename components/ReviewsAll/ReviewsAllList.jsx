@@ -5,6 +5,7 @@ import avatar from "../../public/images/avatar/avatar.png";
 import ReviewsAllListItem from "./ReviewsAllListItem";
 import ReactStars from "react-rating-stars-component";
 import ReviewsAllShowMoreBtn from "./ReviewsAllShowMoreBtn";
+import Breadcrumbs from "../Breadcrumbs";
 
 const ReviewsAllList = () => {
   const stars = (
@@ -63,27 +64,40 @@ const ReviewsAllList = () => {
   ];
 
   return (
-    <Section
-      title={"Reviews"}
-      anotherStyles={"container gap-[24px] md:gap-[32px] lg:gap-[32px]"}
-      styles={"flex items-end justify-between"}
-      sortBy={
-        <button
-          type="button"
-          className="px-[16px] py-[8px] border border-solid border-[#010101] rounded-[20px] flex justify-center items-center gap-[4px] w-[111px] leading-[16.8px] text-[14px]"
-        >
-          Sort by
-          <ArrowButton className="w-[24px] h-[24px] stroke-[#010101]" />
-        </button>
-      }
-    >
-      <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-[30px] lg:grid-cols-3 gap-[16px]">
-        {reviews?.map((item) => {
-          return item && <ReviewsAllListItem key={item.id} item={item} />;
-        })}
-      </ul>
-      <ReviewsAllShowMoreBtn />
-    </Section>
+    <div>
+      <div className="py-[16px] md:py-[24px]">
+        <Breadcrumbs
+          homeElement={"Home"}
+          separator={<span> / </span>}
+          activeClasses="text-[#B7B7B7]"
+          containerClasses="flex items-center gap-[4px] text-[12px] text-[#010101] leading-[14.4px] container"
+          capitalizeLinks
+        />
+      </div>
+      <Section
+        title={"Reviews"}
+        anotherStyles={
+          "container gap-[24px] md:gap-[32px] lg:gap-[32px] md:pt-[32px] lg:pt-[32px]"
+        }
+        styles={"flex items-end justify-between"}
+        sortBy={
+          <button
+            type="button"
+            className="px-[16px] py-[8px] border border-solid border-[#010101] rounded-[20px] flex justify-center items-center gap-[4px] w-[111px] leading-[16.8px] text-[14px]"
+          >
+            Sort by
+            <ArrowButton className="w-[24px] h-[24px] stroke-[#010101]" />
+          </button>
+        }
+      >
+        <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-[30px] lg:grid-cols-3 gap-[16px]">
+          {reviews?.map((item) => {
+            return item && <ReviewsAllListItem key={item.id} item={item} />;
+          })}
+        </ul>
+        <ReviewsAllShowMoreBtn />
+      </Section>
+    </div>
   );
 };
 

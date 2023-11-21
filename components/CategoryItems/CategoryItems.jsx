@@ -15,6 +15,7 @@ import {
 } from "@/redux/item/selectors";
 import { useEffect, useState } from "react";
 import ShowMoreBtn from "../Menu/ShowMoreBtn";
+import Breadcrumbs from "../Breadcrumbs";
 
 const CategoryItems = () => {
   const items = useSelector(selectItems);
@@ -44,6 +45,13 @@ const CategoryItems = () => {
       <MenuBanner />
       <div className="py-[32px] md:pt-[48px] md:pb-[64px] lg:pb-[80px]">
         <div className="flex flex-col gap-[24px]">
+          <Breadcrumbs
+            homeElement={"Home"}
+            separator={<span> / </span>}
+            activeClasses="text-[#B7B7B7]"
+            containerClasses="flex items-center gap-[4px] text-[12px] text-[#010101] leading-[14.4px] container"
+            capitalizeLinks
+          />
           <MenuCategories />
           {!isLoading && (
             <div className="container flex flex-col gap-[10px] md:gap-[39px]">
