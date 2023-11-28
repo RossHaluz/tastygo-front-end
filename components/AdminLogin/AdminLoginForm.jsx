@@ -47,19 +47,24 @@ const AdminLoginForm = () => {
         validationSchema={validationSchema}
       >
         <Form className="flex flex-col mx-auto md:w-[480px] gap-[16px] justify-center items-center w-[320px]">
-          <Field
-            name="email"
-            type="email"
-            placeholder="Type your email"
-            className="border border-solid border-[#010101] py-[12.5px] px-[13px] rounded-[5px] text-[#B7B7B7] text-[16px] leading-[19.2px] w-full outline-none"
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Type your password"
-            className="border border-solid border-[#010101] py-[12.5px] px-[13px] rounded-[5px] text-[#B7B7B7] text-[16px] leading-[19.2px] w-full outline-none"
-          />
-
+          <div className="flex flex-col gap-[10px]">
+            <Field
+              name="email"
+              type="email"
+              placeholder="Type your email"
+              className="border border-solid border-[#010101] py-[12.5px] px-[13px] rounded-[5px] text-[#B7B7B7] text-[16px] leading-[19.2px] w-full outline-none"
+            />
+            <ErrorMessage name="email" component="p" />
+          </div>
+          <div className="flex flex-col gap-[10px]">
+            <Field
+              name="password"
+              type="password"
+              placeholder="Type your password"
+              className="border border-solid border-[#010101] py-[12.5px] px-[13px] rounded-[5px] text-[#B7B7B7] text-[16px] leading-[19.2px] w-full outline-none"
+            />
+            <ErrorMessage name="password" component="p" />
+          </div>
           <button
             type="submit"
             className="w-full rounded-[15px] py-[11.5px] md:py-[13.5px] px-[103px] bg-[#152F23] font-medium leading-[16.8px] text-[#fff] text-[16px]"

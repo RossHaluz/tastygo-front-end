@@ -4,6 +4,7 @@ import { mobileMenuReducer } from "./mobileMenu/slice";
 import { modalReducer } from "./modal/slice";
 import { categoryReducer } from "./catecory/slice";
 import { itemReducer } from "./item/slice";
+import { authReducer } from "./auth/slice";
 
 export const store = configureStore({
   reducer: {
@@ -11,5 +12,6 @@ export const store = configureStore({
     modal: modalReducer,
     category: categoryReducer,
     item: itemReducer,
+    user: authReducer,
   },
 });

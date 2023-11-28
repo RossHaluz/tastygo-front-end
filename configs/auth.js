@@ -1,41 +1,40 @@
-import GoogleProvider from "next-auth/providers/google";
-import Credentials from "next-auth/providers/credentials";
+import axios from "axios";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authConfig = {
+export const authOptions = {
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLEICLIENT_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    }),
-    Credentials({
+    CredentialsProvider({
       credentials: {
-        email: { lable: "email", type: "email", required: true },
-        password: { lable: "password", type: "password", required: true },
+        email: { label: "Email", type: "email", placeholder: "Your email" },
+        password: { label: "Password", type: "password" },
       },
+
       async authorize(credentials) {
-        const users = [
-          {
-            email: "userAdmin@gmail.com",
-            password: "123456",
-          },
-        ];
+        console.log(credentials);
+        try {
+          const res = await axios.post(
+            "http://localhost:3005/api/user/login",
+            credentials,
+            {
+              headers: { "Content-Type": "application/json" },
+            }
+          );
 
-        if (!credentials?.email || !credentials.password) {
+          const user = await res.data;
+
+          if (user) {
+            return user;
+          } else {
+            throw new Error("Invalid response from server");
+          }
+        } catch (error) {
+          console.error("Authorization error:", error);
           return null;
-        }
-        const currentUser = users?.find(
-          (user) => user?.email === credentials?.email
-        );
-
-        if (currentUser && currentUser.password === credentials.password) {
-          const { password, ...userWithoutPass } = currentUser;
-
-          return userWithoutPass;
         }
       },
     }),
   ],
   pages: {
-    signIn: "/admin/login",
+    signIn: "/",
   },
 };

@@ -21,12 +21,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={dm_sans.className}>
-        <ProviderWrapp>
-          <Providers>
+        <Providers>
+          <ProviderWrapp>
             {children}
+            <div id="root-modal"></div>
             <ToastContainer />
-          </Providers>
-        </ProviderWrapp>
+          </ProviderWrapp>
+        </Providers>
       </body>
     </html>
   );

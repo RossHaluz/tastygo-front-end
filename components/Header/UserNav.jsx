@@ -4,6 +4,8 @@ import User from "../../public/images/user/user.svg";
 import Cart from "../../public/images/cart/cart.svg";
 import Search from "../../public/images/search/search.svg";
 import BurgerMenu from "./BurgerMenu";
+import Modal from "../Modal";
+import Login from "../Login/Login";
 
 const UserNav = () => {
   return (
@@ -12,9 +14,9 @@ const UserNav = () => {
         <Search />
       </button>
 
-      <Link href="/auth/login">
-        <User />
-      </Link>
+      <Modal data={<User />} modalStyles={"p-[48px] w-[526px]"}>
+        <Login />
+      </Modal>
 
       <Link href="/" className="flex items-start gap-[1px]">
         <Cart />

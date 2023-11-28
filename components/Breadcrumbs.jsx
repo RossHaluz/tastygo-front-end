@@ -13,7 +13,9 @@ const Breadcrumbs = ({
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
 
-  console.log(pathNames);
+  if (pathNames.length === 0) {
+    return;
+  }
 
   return (
     <div>
