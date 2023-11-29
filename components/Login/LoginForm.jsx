@@ -121,7 +121,7 @@ const LoginForm = () => {
 
               <div className="flex items-center gap-[5px] mx-auto">
                 <p className="text-center text-[16px]">
-                  Don't have an account?
+                  Don&rsquo;t have an account?
                 </p>
                 <button type="button" onClick={openRegisterForm}>
                   Sign Up.
