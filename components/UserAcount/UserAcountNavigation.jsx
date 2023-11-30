@@ -7,6 +7,7 @@ const UserAcountNavigation = ({ isActive, acountNavigations, setIsActive }) => {
       {acountNavigations?.map((item) => {
         return (
           <button
+            key={item}
             type="button"
             onClick={() => setIsActive(item)}
             className={clsx("text-[18px] leading-[21.6px] text-[#1E1E2D]", {

@@ -7,6 +7,7 @@ const PersonalInfoNavigation = ({ isActive, setIsActive, buttons }) => {
       {buttons?.map((item) => {
         return (
           <button
+            key={item}
             type="button"
             onClick={() => setIsActive(item)}
             className={clsx(
