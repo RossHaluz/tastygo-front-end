@@ -10,10 +10,9 @@ export const authOptions = {
       },
 
       async authorize(credentials) {
-        console.log(credentials);
         try {
           const res = await axios.post(
-            "http://localhost:3005/api/user/login",
+            "https://tastygo.onrender.com/api/user/login",
             credentials,
             {
               headers: { "Content-Type": "application/json" },
@@ -23,7 +22,13 @@ export const authOptions = {
           const user = await res.data;
 
           if (user) {
-            return user;
+            return {
+              id: user._id,
+              name: user.firstName,
+              email: user.email,
+              image: user.image || "",
+              number: user.number,
+            };
           } else {
             throw new Error("Invalid response from server");
           }
@@ -34,7 +39,29 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user && user.id) {
+        token = {
+          ...token,
+          ...user,
+        };
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user = token;
+      return session;
+    },
+  },
+
   pages: {
     signIn: "/",
+  },
+  session: {
+    jwt: true,
+  },
+  jwt: {
+    secret: process.env.NEXTAUTH_SECRET,
   },
 };

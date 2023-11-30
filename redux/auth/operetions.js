@@ -22,3 +22,15 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+
+export const getUserDetails = createAsyncThunk(
+  "api/getUserDetails",
+  async (email, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/api/user/user/${email}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
