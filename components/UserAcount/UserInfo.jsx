@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 const UserInfo = ({ selectFile }) => {
@@ -110,6 +110,9 @@ const UserInfo = ({ selectFile }) => {
             Delete account
           </button>
         </div>
+        <button type="button" onClick={() => signOut()}>
+          signOut
+        </button>
       </Form>
     </Formik>
   );
