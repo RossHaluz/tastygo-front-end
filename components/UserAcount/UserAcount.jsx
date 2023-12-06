@@ -7,6 +7,7 @@ import UserAcountPersonalInfo from "./UserAcountPersonalInfo";
 
 const UserAcount = () => {
   const [isActive, setIsActive] = useState("Personal information");
+  const [selectFile, setSelectFile] = useState(null);
 
   const acountNavigations = [
     "Personal information",
@@ -27,14 +28,19 @@ const UserAcount = () => {
       />
       <div className="pt-[70px] pb-[275px] flex items-start gap-[181px]">
         <div className="flex flex-col gap-[28px]">
-          <UserAcountDetails />
+          <UserAcountDetails selectFile={selectFile} />
           <UserAcountNavigation
             isActive={isActive}
             setIsActive={setIsActive}
             acountNavigations={acountNavigations}
           />
         </div>
-        {isActive === "Personal information" && <UserAcountPersonalInfo />}
+        {isActive === "Personal information" && (
+          <UserAcountPersonalInfo
+            selectFile={selectFile}
+            setSelectFile={setSelectFile}
+          />
+        )}
       </div>
     </div>
   );

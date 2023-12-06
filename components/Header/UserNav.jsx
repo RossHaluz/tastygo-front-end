@@ -6,17 +6,30 @@ import Search from "../../public/images/search/search.svg";
 import BurgerMenu from "./BurgerMenu";
 import Modal from "../Modal";
 import Login from "../Login/Login";
+import { useSession } from "next-auth/react";
 
 const UserNav = () => {
+  const session = useSession();
+
+  console.log(session);
+
   return (
     <div className="flex items-center gap-[16px]">
       <button type="button" className="hidden lg:flex">
         <Search />
       </button>
 
-      <Modal data={<User />} modalStyles={"p-[48px] w-[526px]"}>
-        <Login />
-      </Modal>
+      <>
+        {session.status === "authenticated" ? (
+          <Link href="/acount">
+            <User />
+          </Link>
+        ) : (
+          <Modal data={<User />} modalStyles={"p-[48px] w-[526px]"}>
+            <Login />
+          </Modal>
+        )}
+      </>
 
       <Link href="/" className="flex items-start gap-[1px]">
         <Cart />

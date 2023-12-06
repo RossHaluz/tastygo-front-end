@@ -1,32 +1,65 @@
 "use client";
-import { getUserDetails } from "@/redux/auth/operetions";
-import { selectUser } from "@/redux/auth/selectors";
-import { data } from "autoprefixer";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { signOut, useSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as Yup from "yup";
+import axios from "axios";
+import { Formik, Form, Field } from "formik";
+import { useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
-const UserInfo = () => {
-  const session = useSession();
+const UserInfo = ({ selectFile }) => {
+  const { data: session, update } = useSession();
 
   const initialValues = {
-    firstName: session?.data?.user?.name ? session.data.user.name : "",
-    lastName: session?.data?.user?.lastName ? session.data.user.lastName : "",
-    phone: session?.data?.user?.number ? session.data.user.number : "",
-    email: session?.data?.user?.email ? session.data.user.email : "",
+    name: session?.user?.name ? session.user.name : "",
+    lastName: session?.user?.lastName ? session.user.lastName : "",
+    number: session?.user?.number ? session.user.number : "",
+    email: session?.user?.email ? session.user.email : "",
+  };
+
+  const onSubmit = async (values) => {
+    const { name, lastName, number, email } = values;
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("lastName", lastName);
+    formData.append("number", number);
+    formData.append("email", email);
+
+    if (selectFile) {
+      formData.append("image", selectFile[0]);
+    }
+
+    const uploadUser = await axios.put(
+      `https://tastygo.onrender.com/api/user/update-user/${session?.user?.id}`,
+      formData
+    );
+
+    if (uploadUser.status === 200) {
+      toast.success("User success update!");
+
+      await update({
+        ...session,
+        user: {
+          ...session?.user,
+          ...uploadUser.data,
+        },
+      });
+    } else {
+      toast.error("Somethig is wrong...");
+    }
   };
 
   return (
-    <Formik initialValues={initialValues} enableReinitialize={true}>
+    <Formik
+      initialValues={initialValues}
+      enableReinitialize={true}
+      onSubmit={onSubmit}
+    >
       <Form className="flex flex-col gap-[48px] w-full">
         <div className="flex flex-col gap-[24px] ">
           <div className="flex flex-col gap-[12px]">
             <h3 className="text-[16px] font-medium leading-[19.2px]">Name</h3>
             <div className="flex flex-col gap-[16px]">
               <Field
-                name="firstName"
+                name="name"
                 placeholder="First name"
                 className="px-[24px] py-[16px] border border-solid border-[#1E1E2D] rounded-[12px] text-[16px] leading-[19.2px] text-[#1E1E2D] outline-none"
               />
@@ -43,7 +76,7 @@ const UserInfo = () => {
             <div className="flex flex-col gap-[16px]">
               <div className="relstive">
                 <Field
-                  name="phone"
+                  name="number"
                   placeholder="Your phone"
                   className="px-[24px] py-[16px] w-full border border-solid border-[#1E1E2D] rounded-[12px] text-[16px] leading-[19.2px] text-[#1E1E2D] outline-none"
                 />

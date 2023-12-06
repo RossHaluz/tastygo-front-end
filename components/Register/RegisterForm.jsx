@@ -5,9 +5,11 @@ import GoogleLogo from "../../public/images/loging/google-logo.svg";
 import UrkFlag from "../../public/images/number/ukr.svg";
 import { registerUser } from "@/redux/auth/operetions";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const validationSchema = Yup.object({
-  firstName: Yup.string("Type your name").required("Name is required"),
+  name: Yup.string("Type your name").required("Name is required"),
   number: Yup.string("Type your number").required("Number is required"),
   email: Yup.string("Type your email").required("Email is required"),
   password: Yup.string("Type your password").required("Password is required"),
@@ -17,7 +19,7 @@ const RegisterForm = ({ setRegister, setLogin }) => {
   const dispatch = useDispatch();
 
   const initialValues = {
-    firstName: "",
+    name: "",
     number: "",
     email: "",
     password: "",
@@ -28,8 +30,23 @@ const RegisterForm = ({ setRegister, setLogin }) => {
     setRegister(false);
   };
 
-  const onSubmit = async (values, { resetForm }) => {
-    dispatch(registerUser(values));
+  const onSubmit = async (values) => {
+    try {
+      const registerUser = await axios.post(
+        "http://localhost:3005/api/user/register",
+        values
+      );
+      console.log(registerUser);
+
+      if (!registerUser) {
+        await setLogin(true);
+        await setRegister(false);
+      }
+      toast.success("Registration successful");
+    } catch (error) {
+      console.log(error);
+      toast.error("Registration failed");
+    }
   };
 
   return (
@@ -46,12 +63,12 @@ const RegisterForm = ({ setRegister, setLogin }) => {
           <div className="flex flex-col gap-[16px]">
             <div className="flex flex-col gap-[10px]">
               <Field
-                name="firstName"
+                name="name"
                 placeholder="First Name"
                 className="px-[24px] py-[14.5px] text-[#B7B7B7] text-[16px] outline-none leading-[19.2px] border border-solid border-[#010101] rounded-[30px]"
               />
               <ErrorMessage
-                name="firstName"
+                name="name"
                 component="p"
                 className="text-red-400"
               />
@@ -109,7 +126,7 @@ const RegisterForm = ({ setRegister, setLogin }) => {
             type="submit"
             className="bg-[#152F23] rounded-[30px] text-[#fff] text-[16px] flex justify-center items-center leading-[19.2px] font-medium py-[14.5px] px-[191.5px]"
           >
-            Log in
+            Register
           </button>
 
           <h3 className="text-center text-[16px]">or Sign in via</h3>

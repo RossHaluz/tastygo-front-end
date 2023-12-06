@@ -2,8 +2,9 @@
 import { useState } from "react";
 import PersonalInfoNavigation from "./PersonalInfoNavigation";
 import UserInfo from "./UserInfo";
+import UserAcountAvatar from "./UserAcountAvatar";
 
-const UserAcountPersonalInfo = () => {
+const UserAcountPersonalInfo = ({ selectFile, setSelectFile }) => {
   const [isActive, setIsActive] = useState("My personal information");
 
   const buttons = ["My personal information", " Password"];
@@ -17,8 +18,16 @@ const UserAcountPersonalInfo = () => {
           buttons={buttons}
         />
       </div>
-      <div className="flex items-start gap-[123px]">
-        {isActive === "My personal information" && <UserInfo />}
+      <div className="flex items-start gap-[100px]">
+        {isActive === "My personal information" && (
+          <>
+            <UserInfo selectFile={selectFile} />
+            <UserAcountAvatar
+              selectFile={selectFile}
+              setSelectFile={setSelectFile}
+            />
+          </>
+        )}
       </div>
     </div>
   );

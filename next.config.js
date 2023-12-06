@@ -12,7 +12,7 @@ module.exports = {
   },
 
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: ["res.cloudinary.com", "localhost", "lh3.googleusercontent.com"],
     remotePatterns: [
       {
         protocol: "https",

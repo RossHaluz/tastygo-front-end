@@ -5,7 +5,7 @@ import GoogleLogo from "../../public/images/loging/google-logo.svg";
 import Register from "../Register/Register";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 
 const validationSchema = Yup.object({
@@ -19,6 +19,11 @@ const LoginForm = () => {
   const [login, setLogin] = useState(true);
   const [register, setRegister] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/acount";
+
+  console.log(searchParams);
+  console.log(callbackUrl);
 
   const initialValues = {
     email: "",
@@ -32,6 +37,7 @@ const LoginForm = () => {
 
   const onSubmit = async (values, { resetForm }) => {
     const { email, password } = values;
+    console.log(values);
 
     try {
       const result = await signIn("credentials", {
@@ -114,6 +120,7 @@ const LoginForm = () => {
               <button
                 type="button"
                 className="flex items-center gap-[8px] py-[12px] px-[56.5px] border border-solid border-[#010101] rounded-[30px] w-[207px] mx-auto justify-center"
+                onClick={() => signIn("google", { callbackUrl })}
               >
                 <GoogleLogo className="w-[24px] h-[24px]" />
                 Google
