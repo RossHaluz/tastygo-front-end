@@ -13,6 +13,8 @@ const RecentlyViewedList = ({ recentlyViewedItems }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
+  console.log(recentlyViewedItems);
+
   return (
     <div className="relative w-full flex flex-col gap-[16px] md:gap-[24px]">
       <Swiper
