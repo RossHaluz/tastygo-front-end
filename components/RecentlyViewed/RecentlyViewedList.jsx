@@ -47,7 +47,7 @@ const RecentlyViewedList = ({ recentlyViewedItems }) => {
           {recentlyViewedItems
             ?.filter(
               (item, index, array) =>
-                array.findIndex((innerItem) => innerItem._id === item._id) ===
+                array?.findIndex((innerItem) => innerItem._id === item._id) ===
                 index
             )
             .map(({ image, weight, nameItem, price, _id: id }) => {

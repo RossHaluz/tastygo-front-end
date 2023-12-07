@@ -49,7 +49,7 @@ const itemSlice = createSlice({
       state.itemDetails = action.payload.item;
       state.recentlyViewedItems = [
         ...state.recentlyViewedItems,
-        ...action.payload.recentlyViewedItems,
+        ...action.payload?.recentlyViewedItems,
       ];
     },
     [deleteItem.pending](state, action) {
