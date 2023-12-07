@@ -26,15 +26,15 @@ const ProductDetails = () => {
   const [addTheIngredient, setAddTheIngredient] = useState(false);
   const [nutritionalValue, setNutritionalValue] = useState(false);
 
-  function generateUserId() {
-    const newUserId = uuidv4();
-    localStorage.setItem("userId", newUserId);
-    return newUserId;
-  }
-
-  const userId = generateUserId();
-
   useEffect(() => {
+    async function generateUserId() {
+      const newUserId = await uuidv4();
+      await localStorage.setItem("userId", newUserId);
+      return newUserId;
+    }
+
+    const userId = generateUserId();
+
     dispatch(getItemDetails({ itemId, userId }));
   }, [dispatch]);
 
