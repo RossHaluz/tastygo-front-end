@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   items: [],
+  recentlyViewedItems: [],
   itemDetails: null,
   currentPage: null,
   totalPages: null,
@@ -45,7 +46,11 @@ const itemSlice = createSlice({
     },
     [getItemDetails.fulfilled](state, action) {
       state.isLoading = false;
-      state.itemDetails = action.payload;
+      state.itemDetails = action.payload.item;
+      state.recentlyViewedItems = [
+        ...state.recentlyViewedItems,
+        ...action.payload.recentlyViewedItems,
+      ];
     },
     [deleteItem.pending](state, action) {
       state.isLoading = true;

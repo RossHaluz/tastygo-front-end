@@ -1,8 +1,8 @@
 import React from "react";
 
 const ProductDetailsInfo = ({ ingredients, weight, allergens }) => {
-  const allergensParse = JSON.parse(allergens);
-  const lastItem = allergensParse.length - 1;
+  const allergensParse = allergens && JSON.parse(allergens);
+  const lastItem = allergensParse?.length - 1;
 
   return (
     <div className="flex flex-col gap-[16px]">
@@ -20,7 +20,7 @@ const ProductDetailsInfo = ({ ingredients, weight, allergens }) => {
         <span className="normal-case font-medium leading-[19.2px]">
           Allergens:
         </span>
-        {allergensParse.map((item, idx) =>
+        {allergensParse?.map((item, idx) =>
           lastItem === idx ? ` ${item} ` : ` ${item}, `
         )}
       </p>

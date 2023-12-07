@@ -1,6 +1,9 @@
 "use client";
 import { getItemDetails } from "@/redux/item/operetions";
-import { selectItemDetails } from "@/redux/item/selectors";
+import {
+  selectItemDetails,
+  selectRecentlyViewedItems,
+} from "@/redux/item/selectors";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,16 +16,26 @@ import ProductDetailsCount from "./ProductDetailsCount";
 import ProductDetailsBtn from "./ProductDetailsBtn";
 import ProductDetailsAddTheIngredients from "./ProductDetailsAddTheIngredients";
 import NutritionalValue from "./NutritionalValue";
+import { v4 as uuidv4 } from "uuid";
 
 const ProductDetails = () => {
   const item = useSelector(selectItemDetails);
+  const recentlyViewedItems = useSelector(selectRecentlyViewedItems);
   const dispatch = useDispatch();
   const { itemId } = useParams();
   const [addTheIngredient, setAddTheIngredient] = useState(false);
   const [nutritionalValue, setNutritionalValue] = useState(false);
 
+  function generateUserId() {
+    const newUserId = uuidv4();
+    localStorage.setItem("userId", newUserId);
+    return newUserId;
+  }
+
+  const userId = generateUserId();
+
   useEffect(() => {
-    dispatch(getItemDetails(itemId));
+    dispatch(getItemDetails({ itemId, userId }));
   }, [dispatch]);
 
   return (

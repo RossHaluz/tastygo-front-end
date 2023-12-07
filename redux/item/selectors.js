@@ -11,3 +11,6 @@ export const selectTotalPages = (state) => state.item.totalPages;
 export const selectLimit = (state) => state.item.limit;
 
 export const selectTotalItems = (state) => state.item.totalItems;
+
+export const selectRecentlyViewedItems = (state) =>
+  state.item.recentlyViewedItems;

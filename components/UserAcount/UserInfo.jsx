@@ -3,6 +3,7 @@ import axios from "axios";
 import { Formik, Form, Field } from "formik";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import PhoneInputField from "./PhoneInputField";
 
 const UserInfo = ({ selectFile }) => {
   const { data: session, update } = useSession();
@@ -80,6 +81,12 @@ const UserInfo = ({ selectFile }) => {
                   placeholder="Your phone"
                   className="px-[24px] py-[16px] w-full border border-solid border-[#1E1E2D] rounded-[12px] text-[16px] leading-[19.2px] text-[#1E1E2D] outline-none"
                 />
+                {/* <Field
+                  type="text"
+                  name="number"
+                  label="Phone Number"
+                  component={PhoneInputField}
+                /> */}
               </div>
             </div>
           </div>

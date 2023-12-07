@@ -30,9 +30,12 @@ export const getAllItems = createAsyncThunk(
 
 export const getItemDetails = createAsyncThunk(
   "api/getItemDetails",
-  async (itemId, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
+    const { userId, itemId } = params;
     try {
-      const { data } = await axios.get(`/api/item/get-item/${itemId}`);
+      const { data } = await axios.get(
+        `/api/item/get-item/${itemId}?userId=${userId}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -11,8 +11,6 @@ import { useSession } from "next-auth/react";
 const UserNav = () => {
   const session = useSession();
 
-  console.log(session);
-
   return (
     <div className="flex items-center gap-[16px]">
       <button type="button" className="hidden lg:flex">

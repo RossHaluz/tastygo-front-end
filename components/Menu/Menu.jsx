@@ -6,6 +6,7 @@ import {
   selectIsLoading,
   selectItems,
   selectLimit,
+  selectRecentlyViewedItems,
   selectTotalPages,
 } from "@/redux/item/selectors";
 import { useEffect } from "react";
@@ -15,6 +16,7 @@ import MunuCategories from "./MenuCategories";
 import MunuProducts from "./MenuProducts";
 import ShowMoreBtn from "./ShowMoreBtn";
 import Breadcrumbs from "../Breadcrumbs";
+import RecentlyViewed from "../RecentlyViewed/RecentlyViewed";
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const Menu = () => {
   const currentPage = useSelector(selectCurrentPage);
   const currentLimit = useSelector(selectLimit);
   const totalPages = useSelector(selectTotalPages);
+  const recentlyViewedItems = useSelector(selectRecentlyViewedItems);
 
   useEffect(() => {
     dispatch(getAllItems({ page: currentPage, limit: currentLimit }));
@@ -59,6 +62,7 @@ const Menu = () => {
           currentPage={currentPage}
           totalPages={totalPages}
         />
+        <RecentlyViewed />
       </div>
     </div>
   );

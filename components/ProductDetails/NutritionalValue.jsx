@@ -7,7 +7,7 @@ const NutritionalValue = ({
   nutritionalValue,
   setNutritionalValue,
 }) => {
-  const characteristicsParse = JSON.parse(characteristics);
+  const characteristicsParse = characteristics && JSON.parse(characteristics);
 
   return (
     <div

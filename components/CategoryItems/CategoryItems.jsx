@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import ShowMoreBtn from "../Menu/ShowMoreBtn";
 import Breadcrumbs from "../Breadcrumbs";
+import RecentlyViewed from "../RecentlyViewed/RecentlyViewed";
 
 const CategoryItems = () => {
   const items = useSelector(selectItems);
@@ -69,6 +70,7 @@ const CategoryItems = () => {
           currentPage={currentPage}
           totalPages={totalPages}
         />
+        <RecentlyViewed />
       </div>
     </div>
   );

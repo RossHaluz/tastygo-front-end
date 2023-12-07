@@ -9,7 +9,8 @@ const ProductDetailsAddTheIngredients = ({
   addTheIngredient,
   setAddTheIngredient,
 }) => {
-  const optiosIngredientParse = JSON.parse(optiosIngredient);
+  const optiosIngredientParse =
+    optiosIngredient && JSON.parse(optiosIngredient);
 
   return (
     <div
