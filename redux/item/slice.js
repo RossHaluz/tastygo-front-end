@@ -53,6 +53,11 @@ const itemSlice = createSlice({
           ...state.recentlyViewedItems,
           ...action.payload.recentlyViewedItems,
         ];
+      } else {
+        console.error(
+          "recentlyViewedItems is not an array:",
+          action.payload.recentlyViewedItems
+        );
       }
     },
     [deleteItem.pending](state, action) {
