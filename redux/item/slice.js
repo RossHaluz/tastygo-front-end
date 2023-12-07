@@ -47,10 +47,13 @@ const itemSlice = createSlice({
     [getItemDetails.fulfilled](state, action) {
       state.isLoading = false;
       state.itemDetails = action.payload.item;
-      state.recentlyViewedItems = [
-        ...state.recentlyViewedItems,
-        ...action.payload?.recentlyViewedItems,
-      ];
+      state.recentlyViewedItems =
+        state.recentlyViewedItems?.length === 0
+          ? [...action.payload?.recentlyViewedItems]
+          : [
+              ...state.recentlyViewedItems,
+              ...action.payload?.recentlyViewedItems,
+            ];
     },
     [deleteItem.pending](state, action) {
       state.isLoading = true;
