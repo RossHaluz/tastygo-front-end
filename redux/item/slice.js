@@ -45,9 +45,13 @@ const itemSlice = createSlice({
       state.isLoading = true;
     },
     [getItemDetails.fulfilled](state, action) {
+      console.log(action.payload);
       state.isLoading = false;
       state.itemDetails = action.payload.item;
-      state.recentlyViewedItems.push(action.payload.recentlyViewedItems);
+      state.recentlyViewedItems = [
+        ...state.recentlyViewedItems,
+        ...action.payload.recentlyViewedItems,
+      ];
     },
     [deleteItem.pending](state, action) {
       state.isLoading = true;

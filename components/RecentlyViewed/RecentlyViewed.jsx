@@ -10,7 +10,7 @@ const RecentlyViewed = () => {
 
   return (
     <>
-      {recentlyViewedItems.length > 0 &&
+      {recentlyViewedItems?.length > 0 &&
         recentlyViewedItems?.filter((item) => item !== null).length > 0 && (
           <Section title="Recently viewed" anotherStyles={"container"}>
             <RecentlyViewedList recentlyViewedItems={recentlyViewedItems} />
