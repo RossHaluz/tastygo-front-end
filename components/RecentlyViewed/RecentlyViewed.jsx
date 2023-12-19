@@ -6,8 +6,6 @@ import RecentlyViewedList from "./RecentlyViewedList";
 const RecentlyViewed = () => {
   const recentlyViewedItems = useSelector(selectRecentlyViewedItems);
 
-  console.log(recentlyViewedItems);
-
   return (
     <>
       {recentlyViewedItems?.length > 0 &&

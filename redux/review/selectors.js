@@ -1,0 +1,1 @@
+export const selectReviews = (state) => state.review.reviews;

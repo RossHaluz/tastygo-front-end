@@ -5,6 +5,7 @@ const ProductDetailsImg = ({ image, nameItem }) => {
   return (
     <div className="relative">
       <Image
+        priority={true}
         src={image}
         alt={nameItem}
         width={280}

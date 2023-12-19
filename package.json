@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "formik": "^2.4.5",
     "mongoose": "^8.0.1",
+    "nanoid": "^5.0.4",
     "next": "^14.0.2",
     "next-auth": "^4.24.5",
     "next-connect": "^1.0.0",

@@ -3,6 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "swiper/css";
+@import "swiper/css/free-mode";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
 
 html,
 body {
@@ -30,10 +34,38 @@ color: #010101;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 16px;
 }
 
 .swiper-slide img {
   display: block;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: #152f23;
+  border-color: #152f23;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next,
+.swiper-pagination-bullet-active-prev,
+.swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullet-active-prev-prev {
+  background: #b7b7b7;
+  border-color: #b7b7b7;
+}
+
+.custome-pagination, .custom-pagination-reviewsMob, .custom-pagination-reviewsDesc, .custome-pagination-seasonal{
+  display: flex;
+  justify-content: center;
+}
+
+
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  transform: translateX(0);
 }
 
 

@@ -16,6 +16,7 @@ import { modalReducer } from "./modal/slice";
 import { categoryReducer } from "./catecory/slice";
 import { itemReducer } from "./item/slice";
 import { authReducer } from "./auth/slice";
+import { reviewReducer } from "./review/slice";
 
 const persistConfig = {
   key: "viewedItems",
@@ -30,6 +31,7 @@ export const store = configureStore({
     category: categoryReducer,
     item: persistReducer(persistConfig, itemReducer),
     user: authReducer,
+    review: reviewReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

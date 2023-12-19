@@ -44,7 +44,9 @@ const MenuBannerImg = () => {
     }
   }
 
-  return <Image src={currentImg} alt="Menu bg" className="h-full w-full" />;
+  return (
+    <Image priority src={currentImg} alt="Menu bg" className="h-full w-full" />
+  );
 };
 
 export default MenuBannerImg;

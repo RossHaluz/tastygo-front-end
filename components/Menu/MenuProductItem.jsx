@@ -12,6 +12,7 @@ const MenuProductItem = ({ item }) => {
         className="flex flex-col gap-[24px] justify-center items-center relative"
       >
         <Image
+          priority
           src={image}
           width={280}
           height={198}

@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import React from "react";
 
 const Breadcrumbs = ({
   homeElement,
@@ -40,16 +41,15 @@ const Breadcrumbs = ({
               link.slice(1, link.length).replace(/%20/g, "-")
             : link;
 
-          // Повертаємо кожен елемент breadcrumbs
           return (
-            <>
-              <li key={index} className={itemClasses}>
+            <React.Fragment key={index}>
+              <li className={itemClasses}>
                 <Link href={href}>{itemLink}</Link>
               </li>
 
               {/* Відображення роздільника, якщо це не останній елемент шляху */}
               {pathNames.length !== index + 1 && separator}
-            </>
+            </React.Fragment>
           );
         })}
       </ul>

@@ -7,11 +7,12 @@ import Image from "next/image";
 import dishes from "../../public/images/items/dishes.png";
 import "swiper/css";
 import "swiper/css/navigation";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 const SeasonaMenuSlider = () => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-
   const items = [
     {
       img: dishes,
@@ -45,11 +46,12 @@ const SeasonaMenuSlider = () => {
         parallax={true}
         loop={true}
         navigation={{
-          prevEl: navigationPrevRef.current,
-          nextEl: navigationNextRef.current,
+          prevEl: ".swiper-btn-prev-seasonal",
+          nextEl: ".swiper-btn-next-seasonal",
         }}
         pagination={{
           dynamicBullets: true,
+          el: ".custome-pagination-seasonal",
         }}
         breakpoints={{
           320: {
@@ -105,11 +107,15 @@ const SeasonaMenuSlider = () => {
           })}
         </ul>
       </Swiper>
-      <div className="flex justify-center lg:hidden">
-        <NavigationButton
-          navigationPrevRef={navigationPrevRef}
-          navigationNextRef={navigationNextRef}
-        />
+
+      <div className={`flex items-center gap-[8px] mx-auto`}>
+        <button type="button" className="swiper-btn-prev-seasonal">
+          <MdOutlineKeyboardArrowLeft size={24} />
+        </button>
+        <div className="custome-pagination-seasonal"></div>
+        <button type="button" className="swiper-btn-next-seasonal">
+          <MdOutlineKeyboardArrowRight size={24} />
+        </button>
       </div>
     </div>
   );

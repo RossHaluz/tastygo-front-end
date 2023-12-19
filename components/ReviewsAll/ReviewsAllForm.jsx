@@ -8,6 +8,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import { useDispatch } from "react-redux";
+import { createNewReview } from "@/redux/review/operetions";
 
 const validationSchema = Yup.object({
   userName: Yup.string("Type your name").required("Name is required!"),
@@ -17,8 +19,7 @@ const validationSchema = Yup.object({
 const ReviewsAllForm = ({ title, subtitle }) => {
   const { data: session } = useSession();
   const [ratingStars, setRatingStart] = useState(null);
-
-  console.log(session);
+  const dispatch = useDispatch();
 
   const ratingChanged = (newRating) => {
     setRatingStart(newRating);
@@ -29,40 +30,20 @@ const ReviewsAllForm = ({ title, subtitle }) => {
     reviewDesc: "",
   };
 
-  const onSubmit = async (values) => {
-    const { userName, reviewDesc } = values;
-
+  const onSubmit = (values) => {
     if (!session) {
       toast.error("You should be authorized");
       return;
     }
-
-    const formData = new FormData();
-
-    formData.append("userName", userName.toString());
-    formData.append("reviewDesc", reviewDesc.toString());
-
+    const userId = session?.user?.id;
     if (ratingStars) {
-      formData.append("rating", ratingStars);
+      values = {
+        ...values,
+        dateAdd: new Date(),
+        rating: ratingStars,
+      };
     }
-
-    try {
-      const response = await axios.post(
-        `http://localhost:3005/api/review/create-review/${session?.user?.id}`,
-        formData
-      );
-
-      console.log(response);
-
-      if (response.status === 200) {
-        toast.success("Success put a review");
-        // Reset the form or handle any other logic you need
-      } else {
-        toast.error("Failed to submit review");
-      }
-    } catch (error) {
-      toast.error("An error occurred while submitting the review");
-    }
+    dispatch(createNewReview({ ...values, userId }));
   };
 
   return (

@@ -45,7 +45,6 @@ const itemSlice = createSlice({
       state.isLoading = true;
     },
     [getItemDetails.fulfilled](state, action) {
-      console.log(action.payload);
       state.isLoading = false;
       state.itemDetails = action.payload.item;
       if (Array.isArray(action.payload.recentlyViewedItems)) {

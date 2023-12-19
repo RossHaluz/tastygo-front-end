@@ -9,11 +9,12 @@ import "swiper/css/navigation";
 import avatar from "../../public/images/avatar/avatar.png";
 import ReactStars from "react-rating-stars-component";
 import Link from "next/link";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 const ReviewsDesc = () => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-
   const stars = (
     <ReactStars count={5} value={5} activeColor="#536524" edit={false} />
   );
@@ -81,11 +82,15 @@ const ReviewsDesc = () => {
             </button>
           </div>
 
-          <NavigationButton
-            navigationPrevRef={navigationPrevRef}
-            navigationNextRef={navigationNextRef}
-            styles={"ml-0"}
-          />
+          <div className={`flex items-center gap-[8px] mx-auto`}>
+            <button type="button" className="swiper-btn-prev-reviewsDesc">
+              <MdOutlineKeyboardArrowLeft size={24} />
+            </button>
+            <div className="custom-pagination-reviewsDesc"></div>
+            <button type="button" className="swiper-btn-next-reviewsDesc">
+              <MdOutlineKeyboardArrowRight size={24} />
+            </button>
+          </div>
         </div>
 
         <Swiper
@@ -95,11 +100,12 @@ const ReviewsDesc = () => {
           parallax={true}
           loop={true}
           navigation={{
-            prevEl: navigationPrevRef.current,
-            nextEl: navigationNextRef.current,
+            prevEl: ".swiper-btn-prev-reviewsDesc",
+            nextEl: ".swiper-btn-next-reviewsDesc",
           }}
           pagination={{
             dynamicBullets: true,
+            el: ".custom-pagination-reviewsDesc",
           }}
           className="col-span-2 h-full"
         >

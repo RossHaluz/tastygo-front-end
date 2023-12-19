@@ -7,6 +7,8 @@ import UserAcountAvatar from "./UserAcountAvatar";
 const UserAcountPersonalInfo = ({ selectFile, setSelectFile }) => {
   const [isActive, setIsActive] = useState("My personal information");
 
+  console.log(isActive);
+
   const buttons = ["My personal information", " Password"];
 
   return (

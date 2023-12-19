@@ -2,7 +2,6 @@
 import Plus from "../../public/images/count/plus/plus.svg";
 import Minus from "../../public/images/count/minus/minus.svg";
 import clsx from "clsx";
-import { useRef } from "react";
 
 const ProductDetailsAddTheIngredients = ({
   optiosIngredient,
@@ -45,12 +44,12 @@ const ProductDetailsAddTheIngredients = ({
           <div className="flex flex-col gap-[12.5px]">
             {optiosIngredientParse?.map(({ option }) => {
               return (
-                <label class="flex gap-[12px] items-center" key={option}>
+                <label className="flex gap-[12px] items-center" key={option}>
                   <input
                     type="checkbox"
-                    class="appearance-none relative w-[16px] h-[16px] border border-solid border-[#010101] checked:before:content-[''] checked:before:absolute checked:before:top-1/2 checked:before:left-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2  checked:before:w-[11px] checked:before:h-[11px] checked:before:bg-[#010101]"
+                    className="appearance-none relative w-[16px] h-[16px] border border-solid border-[#010101] checked:before:content-[''] checked:before:absolute checked:before:top-1/2 checked:before:left-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2  checked:before:w-[11px] checked:before:h-[11px] checked:before:bg-[#010101]"
                   />
-                  <span class="leading-[16.8px] md:text-[16px] md:leading-[19.2px]">
+                  <span className="leading-[16.8px] md:text-[16px] md:leading-[19.2px]">
                     {option}
                   </span>
                 </label>

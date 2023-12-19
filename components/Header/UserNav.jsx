@@ -34,9 +34,7 @@ const UserNav = () => {
         <span className="text-[16px] leading-[17.6px]">0</span>
       </Link>
 
-      <button type="button">
-        <BurgerMenu />
-      </button>
+      <BurgerMenu />
     </div>
   );
 };

@@ -73,11 +73,12 @@ const UserAcountAvatar = ({ selectFile, setSelectFile }) => {
             <Eddit />
           </button>
 
-          {selectFile && (
-            <button type="button" onClick={handleRemoveAvatar}>
-              <Remove />
-            </button>
-          )}
+          {selectFile ||
+            (session?.user?.image && (
+              <button type="button" onClick={handleRemoveAvatar}>
+                <Remove />
+              </button>
+            ))}
         </div>
       </div>
     </div>

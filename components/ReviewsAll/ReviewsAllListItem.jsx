@@ -10,7 +10,7 @@ const ReviewsAllListItem = ({ item }) => {
       </p>
       {reting}
       <div className="flex items-center gap-[8px]">
-        <Image src={avatar} width={48} height={48} />
+        <Image src={avatar} width={48} height={48} alt="Avatar" />
         <div className="flex flex-col gap-[2px]">
           <span className="tetx-[16px] leading-[19.2px] font-medium">
             {name}

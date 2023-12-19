@@ -22,9 +22,6 @@ const LoginForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/acount";
 
-  console.log(searchParams);
-  console.log(callbackUrl);
-
   const initialValues = {
     email: "",
     password: "",

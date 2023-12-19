@@ -9,11 +9,12 @@ import "swiper/css/navigation";
 import avatar from "../../public/images/avatar/avatar.png";
 import ReactStars from "react-rating-stars-component";
 import Link from "next/link";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 const ReviewsSlider = () => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-
   const stars = (
     <ReactStars
       count={5}
@@ -39,7 +40,7 @@ const ReviewsSlider = () => {
       avatar: avatar,
       name: "William",
       dateAdded: "2 days ago",
-      id: 1,
+      id: 2,
     },
     {
       desc: "Tasty Bites Express has won me over with their amazing pizzas. The crust is just the right balance of crispy and chewy, and the toppings are generous. But that's not all – their diverse salad options and creative bowls are a treat for health-conscious foodies. And if you have a sweet tooth, their desserts are a must-try. A one-stop-shop for a delightful feast!",
@@ -47,7 +48,7 @@ const ReviewsSlider = () => {
       avatar: avatar,
       name: "William",
       dateAdded: "2 days ago",
-      id: 1,
+      id: 3,
     },
   ];
 
@@ -61,11 +62,12 @@ const ReviewsSlider = () => {
           parallax={true}
           loop={true}
           navigation={{
-            prevEl: navigationPrevRef.current,
-            nextEl: navigationNextRef.current,
+            prevEl: ".swiper-btn-prev-reviews",
+            nextEl: ".swiper-btn-next-reviews",
           }}
           pagination={{
             dynamicBullets: true,
+            el: ".custom-pagination-reviewsMob",
           }}
           breakpoints={{
             320: {
@@ -74,11 +76,11 @@ const ReviewsSlider = () => {
             },
             768: {
               slidesPerView: 2,
-              centeredSlides: false,
+              centeredSlides: true,
             },
             1440: {
               slidesPerView: 2,
-              swipeHandler: false,
+              swipeHandler: true,
             },
           }}
         >
@@ -110,11 +112,14 @@ const ReviewsSlider = () => {
           </ul>
         </Swiper>
       </div>
-      <div className="flex justify-center">
-        <NavigationButton
-          navigationPrevRef={navigationPrevRef}
-          navigationNextRef={navigationNextRef}
-        />
+      <div className={`flex items-center gap-[8px] mx-auto`}>
+        <button type="button" className="swiper-btn-prev-reviews">
+          <MdOutlineKeyboardArrowLeft size={24} />
+        </button>
+        <div className="custom-pagination-reviewsMob"></div>
+        <button type="button" className="swiper-btn-next-reviews">
+          <MdOutlineKeyboardArrowRight size={24} />
+        </button>
       </div>
 
       <div className="flex flex-col items-center md:items-start gap-[8px] md:gap-[16px]">

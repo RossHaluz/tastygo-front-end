@@ -48,7 +48,7 @@ const ContactInfo = () => {
           href={`tel:${phoneNumber}`}
           className="flex items-center md:flex-col-reverse md:items-start md:w-[262px] md:h-[262px] justify-between px-[16px] py-[16px] md:p-[24px] border border-solid border-[#010101] rounded-[20px] font-medium leading-[16.8px] md:text-[16px] md:leading-[19.2px]"
         >
-          <a>{phoneNumber}</a>
+          {phoneNumber}
           <Arrow className="fill-[#010101] md:ml-auto w-[46px] h-[46px] md:w-[64px] md:h-[64px]" />
         </Link>
 

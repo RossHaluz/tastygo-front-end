@@ -4,6 +4,7 @@ import Breadcrumbs from "../Breadcrumbs";
 import UserAcountDetails from "./UserAcountDetails";
 import UserAcountNavigation from "./UserAcountNavigation";
 import UserAcountPersonalInfo from "./UserAcountPersonalInfo";
+import UserAcountReviews from "./UserAcountReviews";
 
 const UserAcount = () => {
   const [isActive, setIsActive] = useState("Personal information");
@@ -41,6 +42,7 @@ const UserAcount = () => {
             setSelectFile={setSelectFile}
           />
         )}
+        {isActive === "Ratings and reviews" && <UserAcountReviews />}
       </div>
     </div>
   );

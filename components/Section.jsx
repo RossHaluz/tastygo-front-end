@@ -17,7 +17,7 @@ const Section = ({
     <section
       className={`py-[32px] md:py-[64px] lg:py-[80px] flex flex-col gap-[16px] md:gap-[36px] lg:gap-[32px] ${anotherStyles}`}
     >
-      <div className={`${styles}`}>
+      <div className={styles ? `${styles}` : null}>
         {title && subtitle ? (
           <div className="flex flex-col gap-[12px] md:gap-[16px]">
             <h2 className="uppercase text-[#F9854E] md:text-[18px] md:leading-[21.6px]">
@@ -62,7 +62,9 @@ const Section = ({
 
         {sortBy}
       </div>
-      <div className={`${stylesSection}`}>{children}</div>
+      <div className={stylesSection ? `${stylesSection}` : null}>
+        {children}
+      </div>
     </section>
   );
 };

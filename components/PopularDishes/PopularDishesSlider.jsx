@@ -7,12 +7,12 @@ import Image from "next/image";
 import dishes from "../../public/images/items/dishes.png";
 import "swiper/css";
 import "swiper/css/navigation";
-import NavigationButton from "../NavigationButton";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 const PopularDishesSlider = () => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-
   const items = [
     {
       img: dishes,
@@ -54,11 +54,12 @@ const PopularDishesSlider = () => {
           centeredSlides={true}
           loop={true}
           navigation={{
-            prevEl: navigationPrevRef.current,
-            nextEl: navigationNextRef.current,
+            prevEl: ".swiper-btn-prev",
+            nextEl: ".swiper-btn-next",
           }}
           pagination={{
             dynamicBullets: true,
+            el: ".custome-pagination",
           }}
         >
           <ul>
@@ -102,10 +103,15 @@ const PopularDishesSlider = () => {
         </Swiper>
       </div>
 
-      <NavigationButton
-        navigationNextRef={navigationNextRef}
-        navigationPrevRef={navigationPrevRef}
-      />
+      <div className={`flex items-center gap-[8px] mx-auto`}>
+        <button type="button" className="swiper-btn-prev">
+          <MdOutlineKeyboardArrowLeft size={24} />
+        </button>
+        <div className="custome-pagination"></div>
+        <button type="button" className="swiper-btn-next">
+          <MdOutlineKeyboardArrowRight size={24} />
+        </button>
+      </div>
     </div>
   );
 };

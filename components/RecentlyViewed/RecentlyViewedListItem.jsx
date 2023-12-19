@@ -11,6 +11,7 @@ const RecentlyViewedListItem = ({ item }) => {
       <li className="flex flex-col gap-[24px] p-[24px] border border-solid border-[#010101]/[.20] rounded-[8px]">
         <Link href={`/menu/${id}`}>
           <Image
+            priority
             src={image}
             alt={nameItem}
             width={280}
