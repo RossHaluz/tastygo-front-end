@@ -35,6 +35,13 @@ const SeasonaMenuSlider = () => {
       price: "$ 3.49",
       id: 3,
     },
+    {
+      img: dishes,
+      title: "Salad With Mussels3",
+      weigth: "300g",
+      price: "$ 3.49",
+      id: 4,
+    },
   ];
 
   return (

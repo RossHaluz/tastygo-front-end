@@ -1,18 +1,17 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { useRef } from "react";
-import NavigationButton from "../NavigationButton";
 import "swiper/css";
 import "swiper/css/navigation";
 import RecentlyViewedListItem from "./RecentlyViewedListItem";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 
 const RecentlyViewedList = ({ recentlyViewedItems }) => {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-
   return (
     <div className="relative w-full flex flex-col gap-[16px] md:gap-[24px]">
       <Swiper
@@ -22,11 +21,13 @@ const RecentlyViewedList = ({ recentlyViewedItems }) => {
         parallax={true}
         loop={true}
         navigation={{
-          prevEl: navigationPrevRef.current,
-          nextEl: navigationNextRef.current,
+          prevEl: ".swiper-button-recently-prev",
+          nextEl: ".swiper-button-recently-next",
         }}
         pagination={{
           dynamicBullets: true,
+          el: ".custome-pagination-recently",
+          dynamicMainBullets: 3,
         }}
         breakpoints={{
           320: {
@@ -91,6 +92,18 @@ const RecentlyViewedList = ({ recentlyViewedItems }) => {
             })}
         </ul>
       </Swiper>
+
+      {recentlyViewedItems?.length > 3 && (
+        <div className={`flex items-center gap-[8px] mx-auto`}>
+          <button type="button" className="swiper-button-recently-prev">
+            <MdOutlineKeyboardArrowLeft size={24} />
+          </button>
+          {/* <div className="custome-pagination-recently w-[90px]"></div> */}
+          <button type="button" className="swiper-button-recently-next">
+            <MdOutlineKeyboardArrowRight size={24} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
